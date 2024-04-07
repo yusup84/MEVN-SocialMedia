@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node-dev --respawn src/index.ts",
     "build": "rm -rf build && node esbuild.js",
-    "lint": "eslint src/** --ext .ts"
+    "lint": "eslint src/**/* .ts"
   },
   "author": "Yusup Wahyudin",
   "license": "ISC",
