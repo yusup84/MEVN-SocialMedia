@@ -1,6 +1,9 @@
 import express, {Express, Request, Response} from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
+import helmet from 'helmet'
+// routes
+import routes from './routes'
 
 dotenv.config()
 
@@ -9,6 +12,8 @@ const port: string = process.env.PORT ?? '3000'
 
 app.use(express.json())
 app.use(cors())
+app.use(helmet())
+app.use(routes)
 
 app.get('/',(req: Request, res: Response) => {
     res.send(`Express + Typescript Server`)
