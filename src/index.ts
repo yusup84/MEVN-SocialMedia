@@ -2,6 +2,7 @@ import express, {Express, Request, Response} from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import helmet from 'helmet'
+import mongoose, { mongo } from 'mongoose'
 // routes
 import routes from './routes'
 
@@ -14,6 +15,9 @@ app.use(express.json())
 app.use(cors())
 app.use(helmet())
 app.use(routes)
+
+const MONGODB_URL = process.env.MONGODB_URL ?? ""
+mongoose.connect(MONGODB_URL)
 
 app.get('/',(req: Request, res: Response) => {
     res.send(`Express + Typescript Server`)
